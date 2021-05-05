@@ -64,7 +64,7 @@ export async function shouldLoadWithWebpack5(
   install(false)
 
   const userConfigModule = require(path)
-  const userConfig: Partial<NextConfig> = normalizeConfig(
+  const userConfig: Partial<NextConfig> = await normalizeConfig(
     phase,
     userConfigModule.default || userConfigModule
   )

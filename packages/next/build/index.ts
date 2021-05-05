@@ -167,7 +167,7 @@ export default async function build(
     const hasPublicDir = await fileExists(publicDir)
 
     telemetry.record(
-      eventCliSession(PHASE_PRODUCTION_BUILD, dir, {
+      await eventCliSession(PHASE_PRODUCTION_BUILD, dir, {
         webpackVersion: isWebpack5 ? 5 : 4,
         cliCommand: 'build',
         isSrcDir: path.relative(dir, pagesDir!).startsWith('src'),

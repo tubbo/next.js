@@ -9,7 +9,7 @@ const configFile = new File(join(__dirname, '../next.config.js'))
 describe('Promise in next config', () => {
   afterAll(() => configFile.restore())
 
-  it('should throw error when a promise is return on config', async () => {
+  it('allows promise if config is expressed as a function', async () => {
     configFile.write(`
       module.exports = (phase, { isServer }) => {
         return new Promise((resolve) => {
@@ -23,9 +23,7 @@ describe('Promise in next config', () => {
       { stderr: true }
     )
 
-    expect(stderr).toMatch(
-      /Error: > Promise returned in next config\. https:\/\//
-    )
+    expect(stderr).toEqual('')
   })
 
   it('should warn when a promise is returned on webpack', async () => {

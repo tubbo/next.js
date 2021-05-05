@@ -419,7 +419,7 @@ export default async function loadConfig(
   // If config file was found
   if (path?.length) {
     const userConfigModule = require(path)
-    const userConfig = normalizeConfig(
+    const userConfig = await normalizeConfig(
       phase,
       userConfigModule.default || userConfigModule
     )
