@@ -13,7 +13,7 @@ export type LoadedEnvFiles = Array<{
 let combinedEnv: Env | undefined = undefined
 let cachedLoadedEnvFiles: LoadedEnvFiles = []
 
-type Log = {
+export type Log = {
   info: (...args: any[]) => void
   error: (...args: any[]) => void
 }
