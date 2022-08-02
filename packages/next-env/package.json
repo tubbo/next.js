@@ -21,6 +21,16 @@
     "dist",
     "types"
   ],
+  "exports": {
+    ".": {
+      "require": "dist/index.js",
+      "types": "types/index.d.ts"
+    },
+    "./*": {
+      "require": "dist/*.js",
+      "types": "types/*.d.ts"
+    }
+  },
   "scripts": {
     "dev": "ncc build ./index.ts -w -o dist/",
     "prerelease": "rimraf ./dist/",
